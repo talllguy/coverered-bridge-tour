@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+  <link rel="shortcut icon" type="image/png" href="favicon.ico"/>
   <title>Covered Bridge Tour</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
   <script src="https://npmcdn.com/mapillary-js@1.0.1/dist/mapillary-js.min.js"></script>
@@ -15,8 +15,8 @@
   .mly-wrapper {
     position: relative;
     background-color: grey;
-    width: 800px;
-    height: 640px;
+    width: 640px;
+    height: 480px;
   }
   #mly, .mapillary-js {
     position: relative;
@@ -27,16 +27,16 @@
 </head>
 <body>
   <div class="container">
-    <div class="row Buttons">
-        <div class="col-xs-1 col-md-offset-5 col-md-2">
-          <button type="button" class="btn btn-success" onclick="play()">
-            Play
-          </button>
-          <button type="button" class="btn btn-danger" onclick="stop()">
-            Stop
-          </button>
-          <br>
+    <div class="jumbotron">
+      <h1>Covered Bridge Tour</h1>
+      <div class="col-xs-1 col-md-offset-5 col-md-2">
+        <div class="btn-group">
+          <button type="button" class="btn btn-success" onclick="play()">Play</button>
+          <button type="button" class="btn btn-danger" onclick="stop()">Stop</button>
         </div>
+      </div>
+    </div>
+    <div class="row Buttons">
     </div>
     <div class="row Map">
         <div class="col-md-offset-1 col-md-10">
@@ -59,10 +59,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
         {sequenceKey: "4LEI0g6aAOD_krblBE0ZdQ", startKey: "Qjjy9UlAXkU6uloebkmN0Q", stopKey: "YNZSCNeYJrkyJvxX1SNVmA",
          infoKeys: [
              {key: "rdjZSlBWAg4FxBvgJdsENA", description: "The Utica Covered Bridge."},
-             {key: "y8Xvq7rAVP_Cl7RwEFITaA", description: "Built 1834 over the Monocacy."},
+             {key: "y8Xvq7rAVP_Cl7RwEFITaA", description: "Built 1834 over the Monocacy River."},
              {key: "cVpB36ofVhsZf9RQPzWnlQ", description: "Relocated here in 1891."}
          ]
-        }
+       },
+       {sequenceKey: "iNYspggX8rzxqZl7KQEXOw", startKey: "_pCL8_YKYUL0KMUdnsEg_g", stopKey: "YgJ-kk3LhimnLyRBqvmOOg",
+        infoKeys: [
+            {key: "06BibirH0XJQDFIDNR1L3Q", description: "The Loys Station Covered Bridge."},
+            {key: "ezowDOHtpdPr_JY-W_H4QA", description: "Built 1834 over Owens Creek."},
+            {key: "18WqanuDg0JYxKE3d77NZg", description: "Rebuilt in 1991 after a fire."}
+        ]
+      },
+      {sequenceKey: "3lEKxSJQNSiplIleiZjoLQ", startKey: "Yuy5OVso5F3gcqpWPwRIKw", stopKey: "fiz-Ojg0bZeRiNX-GpDtvQ",
+       infoKeys: [
+           {key: "NGaJXHhi-hHdl1qf_r_ong", description: "The Roddy Road Covered Bridge."},
+           {key: "ezowDOHtpdPr_JY-W_H4QA", description: "Built 1850 over Owens Creek."},
+           {key: "EDR--1U_yxPSf5lb1b6ETg", description: "The vertical clearance is only 8 foot-6 inches."}
+       ]
+     }
     ], playing: true});
     mlyRoute.activateComponent("route");
 
