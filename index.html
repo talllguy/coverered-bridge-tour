@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+  <title>Covered Bridge Tour</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <script src="https://npmcdn.com/mapillary-js@1.0.1/dist/mapillary-js.min.js"></script>
+  <link rel="stylesheet" href="https://npmcdn.com/mapillary-js@1.0.1/dist/mapillary-js.min.css"/>
+  <style>
+  body { background-color: white; }
+  .mly-wrapper { margin: 0 auto; }
+
+  .mly-wrapper {
+    position: relative;
+    background-color: grey;
+    width: 800px;
+    height: 640px;
+  }
+  #mly, .mapillary-js {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="row Buttons">
+        <div class="col-xs-1 col-md-offset-5 col-md-2">
+          <button type="button" class="btn btn-success" onclick="play()">
+            Play
+          </button>
+          <button type="button" class="btn btn-danger" onclick="stop()">
+            Stop
+          </button>
+          <br>
+        </div>
+    </div>
+    <div class="row Map">
+        <div class="col-md-offset-1 col-md-10">
+          <div class="mly-wrapper">
+            <div class="mly" id="mly-route">
+            </div>
+          </div>
+        </div>
+    </div>
+<script>
+var play = undefined;
+var stop = undefined;
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    var mlyRoute = new Mapillary.Viewer('mly-route', 'aTBiNkpUM25nbkFiWHRtMWRJdzBZdzpjYTNmMTlmZGI0YjQxYzQx', 'Qjjy9UlAXkU6uloebkmN0Q',
+                                        {cover: true, cache: false, direction: false});
+    var route = mlyRoute.getComponent("route");
+
+    route.configure({paths: [
+        {sequenceKey: "4LEI0g6aAOD_krblBE0ZdQ", startKey: "Qjjy9UlAXkU6uloebkmN0Q", stopKey: "YNZSCNeYJrkyJvxX1SNVmA",
+         infoKeys: [
+             {key: "rdjZSlBWAg4FxBvgJdsENA", description: "The Utica Covered Bridge."},
+             {key: "y8Xvq7rAVP_Cl7RwEFITaA", description: "Built 1834 over the Monocacy."},
+             {key: "cVpB36ofVhsZf9RQPzWnlQ", description: "Relocated here in 1891."}
+         ]
+        }
+    ], playing: true});
+    mlyRoute.activateComponent("route");
+
+    play = function play() {
+        mlyRoute.deactivateCover();
+        route.play();
+    }
+
+    stop = function stop() {
+        route.stop()
+    }
+})
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+</body>
+</html>
